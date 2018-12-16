@@ -65,18 +65,12 @@ export class AppComponent {
 
   updateLagStart(value: string) {
     const num = this.formatCount(value);
-    if (num > this.values.lag.end) {
-      this.updateLagEnd(String(num));
-    }
     this.strings.lag.start = String(num);
     this.values.lag.start = num;
   }
 
   updateLagEnd(value: string) {
-    let num = this.formatCount(value);
-    if (num < this.values.lag.start) {
-      num = this.values.lag.start;
-    }
+    const num = this.formatCount(value);
     this.strings.lag.end = String(num);
     this.values.lag.end = num;
   }
