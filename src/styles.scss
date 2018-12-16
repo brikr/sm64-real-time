@@ -16,3 +16,8 @@ h1, p, a {
 a {
   color: map-get($mat-pink, 500);
 }
+
+// don't have the app hug the top of the page
+body {
+  margin-top: 300px;
+}
