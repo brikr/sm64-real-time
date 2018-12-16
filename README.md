@@ -1,6 +1,8 @@
 # SM64 IGT to Real Time Converter
 
-This web tool helps SM64 individuals easily convert their single star times from in-game time (IGT) to real time. Real time is calculated using the following formula:
+This web tool helps SM64 individuals easily convert their single star times from in-game time (IGT) to real time. You can view a live version [here](https://sm64-real-time.appspot.com/).
+
+Real time is calculated using the following formula:
 ```
 real_time = (in_game_time * 60 + buf_at_end - buf_at_start + num_fadeouts * 4 + num_ttm_slide_entries * 148) / (60000 / 1001)
 ```
