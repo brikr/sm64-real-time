@@ -12,9 +12,8 @@ You can serve the project locally via [Angular CLI](https://cli.angular.io/).
 ng serve
 ```
 
-You can also deploy to your favorite Google Cloud project with the Google Cloud SDK:
+You can also deploy to your favorite Google Cloud project with the [Google Cloud SDK](https://cloud.google.com/sdk/):
 ```
-# TODO(brikr): Setup GAE stuff
 ng build
 gcloud app deploy
 ```
