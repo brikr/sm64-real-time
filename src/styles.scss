@@ -9,6 +9,10 @@ $theme-accent: mat-palette($mat-deep-purple);
 $theme: mat-dark-theme($theme-primary, $theme-accent);
 @include angular-material-theme($theme);
 
-h1, p {
+h1, p, a {
   font-family: Roboto;
+}
+
+a {
+  color: map-get($mat-pink, 500);
 }

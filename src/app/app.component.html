@@ -2,36 +2,48 @@
   <div fxLayout="column" fxLayoutAlign="start start">
     <div class="time" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
       <mat-form-field>
-        <input matInput type="number" placeholder="min" autofocus [(ngModel)]="strings.time.minutes" (blur)="updateMinutes($event.target.value)">
+        <input matInput type="number" placeholder="min" autofocus [(ngModel)]="strings.time.minutes" (keyup.enter)="updateMinutes($event.target.value)"
+          (blur)="updateMinutes($event.target.value)">
       </mat-form-field>
       <p>:</p>
       <mat-form-field>
-        <input matInput type="number" placeholder="sec" [(ngModel)]="strings.time.seconds" (blur)="updateSeconds($event.target.value)">
+        <input matInput type="number" placeholder="sec" [(ngModel)]="strings.time.seconds" (keyup.enter)="updateSeconds($event.target.value)"
+          (blur)="updateSeconds($event.target.value)">
       </mat-form-field>
       <p>.</p>
       <mat-form-field>
-        <input matInput type="number" placeholder="cs" [(ngModel)]="strings.time.centiseconds" (blur)="updateCentiseconds($event.target.value)">
+        <input matInput type="number" placeholder="cs" [(ngModel)]="strings.time.centiseconds" (keyup.enter)="updateCentiseconds($event.target.value)"
+          (blur)="updateCentiseconds($event.target.value)">
       </mat-form-field>
     </div>
     <div class="buf" fxLayout="row" fxLayoutGap="10px">
       <mat-form-field>
-        <input matInput type="number" placeholder="lag at start" [(ngModel)]="strings.lag.start" (blur)="updateLagStart($event.target.value)">
+        <input matInput type="number" placeholder="lag at start" [(ngModel)]="strings.lag.start" (keyup.enter)="updateLagStart($event.target.value)"
+          (blur)="updateLagStart($event.target.value)">
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="number" placeholder="lag at end" [(ngModel)]="strings.lag.end" (blur)="updateLagEnd($event.target.value)">
+        <input matInput type="number" placeholder="lag at end" [(ngModel)]="strings.lag.end" (keyup.enter)="updateLagEnd($event.target.value)"
+          (blur)="updateLagEnd($event.target.value)">
       </mat-form-field>
     </div>
     <div class="fadeout" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
       <mat-form-field>
-        <input matInput type="number" placeholder="fadeout count" [(ngModel)]="strings.fadeouts.baseCount" (blur)="updateFadeoutsBase($event.target.value)">
+        <input matInput type="number" placeholder="fadeout count" [(ngModel)]="strings.fadeouts.baseCount"
+          (keyup.enter)="updateFadeoutsBase($event.target.value)" (blur)="updateFadeoutsBase($event.target.value)">
       </mat-form-field>
       <mat-form-field *ngIf="ttmSlide">
-        <input matInput type="number" placeholder="ttm slide entries" [(ngModel)]="strings.fadeouts.ttmCount" (blur)="updateFadeoutsTTM($event.target.value)">
+        <input matInput type="number" placeholder="ttm slide entries" [(ngModel)]="strings.fadeouts.ttmCount"
+          (keyup.enter)="updateFadeoutsTTM($event.target.value)" (blur)="updateFadeoutsTTM($event.target.value)">
       </mat-form-field>
       <mat-checkbox [ngModel]="ttmSlide" (ngModelChange)="toggleTTMSlide($event)">TTM slide</mat-checkbox>
     </div>
     <h1 fxFlexAlign="center">
       {{ getRealTime() }}
     </h1>
+    <footer fxLayout="row" fxLayoutAlign="space-between center">
+      <p>made by minikori</p>
+      <a href="https://twitter.com/_minikori">twitter</a>
+      <a href="https://github.com/brikr/sm64-real-time">github</a>
+    </footer>
   </div>
 </div>
