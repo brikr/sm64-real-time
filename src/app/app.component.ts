@@ -102,10 +102,10 @@ export class AppComponent {
   }
 
   getRealTime(): string {
-    const igtFrames =
+    const igtFrames = Math.ceil(
         ((this.values.time.minutes * 60) + (this.values.time.seconds) +
          this.values.time.centiseconds / 100) *
-        60;
+        60);
 
     const lagFrames = this.values.lag.end - this.values.lag.start +
         this.values.fadeouts.baseCount * 4 +
