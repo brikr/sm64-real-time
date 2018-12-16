@@ -43,7 +43,7 @@ export class AppComponent {
 
   updateSeconds(value: string) {
     const num = Number.parseInt(value, 10);
-    if (Number.isNaN(num) || num < 0) {
+    if (Number.isNaN(num) || num < 0 || num > 60) {
       this.strings.time.seconds = '00';
       this.values.time.seconds = 0;
     } else {
@@ -54,7 +54,7 @@ export class AppComponent {
 
   updateCentiseconds(value: string) {
     const num = Number.parseInt(value, 10);
-    if (Number.isNaN(num) || num < 0) {
+    if (Number.isNaN(num) || num < 0 || num > 100) {
       this.strings.time.centiseconds = '00';
       this.values.time.centiseconds = 0;
     } else {
