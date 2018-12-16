@@ -105,7 +105,8 @@ export class AppComponent {
         this.values.fadeouts.baseCount * 4 +
         this.values.fadeouts.ttmCount * 148;
 
-    const realSeconds = (igtFrames + lagFrames) / (60000 / 1001);
+    let realSeconds = (igtFrames + lagFrames) / (60000 / 1001);
+    if (realSeconds < 0) realSeconds = 0;
     const pad = realSeconds % 60 < 10 ? '0' : '';
 
     return `${Math.floor(realSeconds / 60).toFixed(0)}:${pad}${
