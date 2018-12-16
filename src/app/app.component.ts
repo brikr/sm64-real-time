@@ -59,7 +59,7 @@ export class AppComponent {
       this.values.time.centiseconds = 0;
     } else {
       this.strings.time.centiseconds = this.padTime(num, false);
-      this.values.time.centiseconds = num;
+      this.values.time.centiseconds = num < 10 ? num * 10 : num;
     }
   }
 
@@ -70,7 +70,10 @@ export class AppComponent {
   }
 
   updateLagEnd(value: string) {
-    const num = this.formatCount(value);
+    let num = this.formatCount(value);
+    if (num < this.values.lag.start) {
+      num = this.values.lag.start;
+    }
     this.strings.lag.end = String(num);
     this.values.lag.end = num;
   }
@@ -96,10 +99,20 @@ export class AppComponent {
   }
 
   getRealTime(): string {
-    return `${this.values.time.minutes}:${
-        this.padTime(
-            this.values.time.seconds,
-            true)}.${this.padTime(this.values.time.centiseconds, false)}`;
+    const igtFrames =
+        ((this.values.time.minutes * 60) + (this.values.time.seconds) +
+         this.values.time.centiseconds / 100) *
+        60;
+
+    const lagFrames = this.values.lag.end - this.values.lag.start +
+        this.values.fadeouts.baseCount * 4 +
+        this.values.fadeouts.ttmCount * 148;
+
+    const realSeconds = (igtFrames + lagFrames) / (60000 / 1001);
+    const pad = realSeconds % 60 < 10 ? '0' : '';
+
+    return `${(realSeconds / 60).toFixed(0)}:${pad}${
+        (realSeconds % 60).toFixed(2)}`;
   }
 
   private formatCount(value: string): number {
