@@ -109,8 +109,9 @@ export class AppComponent {
     if (realSeconds < 0) realSeconds = 0;
     const pad = realSeconds % 60 < 10 ? '0' : '';
 
-    return `${Math.floor(realSeconds / 60).toFixed(0)}:${pad}${
-        (realSeconds % 60).toFixed(2)}`;
+    const min = Math.floor(realSeconds / 60);
+    const sec = (Math.floor(realSeconds % 60 * 100) / 100).toFixed(2);
+    return `${min}:${pad}${sec}`;
   }
 
   private formatCount(value: string): number {
