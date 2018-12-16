@@ -14,7 +14,7 @@ SM64 in-game time is tracked at 60 frames per second, while the actual output is
 For more information on SM64 speedruns and links to the community Discord server, etc., check out the [Useful Resources document](https://docs.google.com/document/d/1kgjJXD4z_1Q_zzsTE_HcZJfWGBimrxY11iZn2Hi3-qY/preview).
 
 ## Usage
-You can serve the project locally via [Angular CLI](https://cli.angular.io/).
+You can serve the project locally via [Angular CLI](https://cli.angular.io/):
 ```
 ng serve
 ```
