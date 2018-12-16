@@ -47,7 +47,7 @@ export class AppComponent {
       this.strings.time.seconds = '00';
       this.values.time.seconds = 0;
     } else {
-      this.strings.time.seconds = this.padTime(num, true);
+      this.strings.time.seconds = this.padTime(num);
       this.values.time.seconds = num;
     }
   }
@@ -58,8 +58,8 @@ export class AppComponent {
       this.strings.time.centiseconds = '00';
       this.values.time.centiseconds = 0;
     } else {
-      this.strings.time.centiseconds = this.padTime(num, false);
-      this.values.time.centiseconds = num < 10 ? num * 10 : num;
+      this.strings.time.centiseconds = this.padTime(num);
+      this.values.time.centiseconds = num;
     }
   }
 
@@ -114,7 +114,7 @@ export class AppComponent {
     const realSeconds = (igtFrames + lagFrames) / (60000 / 1001);
     const pad = realSeconds % 60 < 10 ? '0' : '';
 
-    return `${(realSeconds / 60).toFixed(0)}:${pad}${
+    return `${Math.floor(realSeconds / 60).toFixed(0)}:${pad}${
         (realSeconds % 60).toFixed(2)}`;
   }
 
@@ -127,12 +127,8 @@ export class AppComponent {
     }
   }
 
-  private padTime(value: number, lead: boolean): string {
+  private padTime(value: number): string {
     const pad = value < 10 ? '0' : '';
-    if (lead) {
-      return pad + value;
-    } else {
-      return value + pad;
-    }
+    return pad + value;
   }
 }
